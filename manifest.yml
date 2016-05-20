@@ -1,0 +1,9 @@
+---
+applications:
+  - name: samplego1
+    buildpack: https://github.com/cloudfoundry/go-buildpack.git
+    memory: 128M
+    env:
+      GOVERSION: go1.6
+      GOPACKAGENAME: goxxx
+

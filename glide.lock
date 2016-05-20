@@ -1,0 +1,67 @@
+hash: 26d95a137f2e8ee386db651e10cc7bcc9a4f14b934399483d1fa8cecb2723ed6
+updated: 2016-05-20T11:25:03.545680842+09:00
+imports:
+- name: github.com/eknkc/amber
+  version: 91774f050c1453128146169b626489e60108ec03
+  subpackages:
+  - parser
+- name: github.com/flosch/pongo2
+  version: 7f5515449ea9bbeb00256d9cbb654c556e7d0146
+- name: github.com/garyburd/redigo
+  version: 8873b2f1995f59d4bcdd2b0dc9858e2cb9bf0c13
+  subpackages:
+  - redis
+  - internal
+- name: github.com/imdario/mergo
+  version: 50d4dbd4eb0e84778abe37cefef140271d96fade
+- name: github.com/Joker/jade
+  version: 954b7d355b6a52e2ffec3a4bd734c107d97f2816
+- name: github.com/kataras/iris
+  version: fa31c74bc62d6168fbd692a8326f8b73de9bc853
+  subpackages:
+  - bindings
+  - config
+  - context
+  - errors
+  - logger
+  - render/rest
+  - render/template
+  - server
+  - sessions
+  - sessions/providers/memory
+  - sessions/providers/redis
+  - sessions/store
+  - utils
+  - render/template/engine/amber
+  - render/template/engine/html
+  - render/template/engine/jade
+  - render/template/engine/markdown
+  - render/template/engine/pongo
+  - sessions/providers/redis/service
+- name: github.com/klauspost/compress
+  version: 14eb9c4951195779ecfbec34431a976de7335b0a
+  subpackages:
+  - gzip
+  - flate
+  - zlib
+- name: github.com/klauspost/cpuid
+  version: 09cded8978dc9e80714c4d85b0322337b0a1e5e0
+- name: github.com/klauspost/crc32
+  version: 19b0b332c9e4516a6370a0456e6182c3b5036720
+- name: github.com/microcosm-cc/bluemonday
+  version: 4ac6f27528d0a3f2a59e0b0a6f6b3ff0bb89fe20
+- name: github.com/russross/blackfriday
+  version: 2004188462c3946efefbdcd91aa83e49b4175bfb
+- name: github.com/shurcooL/sanitized_anchor_name
+  version: 10ef21a441db47d8b13ebcc5fd2310f636973c77
+- name: github.com/valyala/fasthttp
+  version: e40caade415cbe3e53f14e9d8ba6ec2368e4458f
+  subpackages:
+  - fasthttpadaptor
+- name: golang.org/x/net
+  version: 5916dcb167ed985a5b9e6871fbfd74848a4c170b
+  subpackages:
+  - context
+  - html
+  - html/atom
+devImports: []
