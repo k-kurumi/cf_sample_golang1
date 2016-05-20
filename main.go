@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 	"runtime"
+	"time"
 
 	"github.com/kataras/iris"
 )
@@ -20,19 +21,18 @@ func main() {
 	cpus := runtime.NumCPU()
 
 	iris.Get("/", func(ctx *iris.Context) {
+		start := time.Now()
+		// HTTPレスポンスにログ出力にかかった時間を書き出す
+		defer func(t time.Time) { ctx.Write(fmt.Sprint("cpus: ", cpus, ", print-duration: ", time.Now().Sub(t))) }(start)
 
 		c := make(chan bool, cpus)
 		for i := 1; i <= 500; i++ {
 			c <- true
-
 			go func(i int) {
 				defer func() { <-c }()
 				fmt.Println("mylog", i)
 			}(i)
-
 		}
-
-		ctx.Write("cpus:", cpus)
 	})
 
 	iris.Listen(":" + os.Getenv("PORT"))
