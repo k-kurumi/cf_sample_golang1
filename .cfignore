@@ -1,2 +1,4 @@
 .git/
 .envrc
+glide.*
+README.md
