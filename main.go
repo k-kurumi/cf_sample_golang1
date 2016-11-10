@@ -4,9 +4,10 @@ import (
 	"fmt"
 	"os"
 	"runtime"
-	"time"
 
-	"github.com/kataras/iris"
+	"github.com/labstack/echo"
+	"github.com/labstack/echo/engine/standard"
+	"net/http"
 )
 
 // 並列数の制限
@@ -19,21 +20,20 @@ var cpus int
 
 func main() {
 	cpus := runtime.NumCPU()
+	e := echo.New()
+	e.Get("/", func(c echo.Context) error {
 
-	iris.Get("/", func(ctx *iris.Context) {
-		start := time.Now()
-		// HTTPレスポンスにログ出力にかかった時間を書き出す
-		defer func(t time.Time) { ctx.Write(fmt.Sprint("cpus: ", cpus, ", print-duration: ", time.Now().Sub(t))) }(start)
-
-		c := make(chan bool, cpus)
+		ch := make(chan bool, cpus)
 		for i := 1; i <= 500; i++ {
-			c <- true
+			ch <- true
 			go func(i int) {
-				defer func() { <-c }()
+				defer func() { <-ch }()
 				fmt.Println("mylog", i)
 			}(i)
 		}
+
+		return c.String(http.StatusOK, "Hellloooo, world")
 	})
 
-	iris.Listen(":" + os.Getenv("PORT"))
+	e.Run(standard.New(":" + os.Getenv("PORT")))
 }

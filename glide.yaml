@@ -1,4 +1,0 @@
-package: cf_sample_golang1
-import:
-- package: github.com/kataras/iris
-  version: v4
