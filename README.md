@@ -3,8 +3,6 @@
 go1.6 or later
 
 ```
-$ godep get
-$ godep save
-
-$ PORT=3333 godep go run main.go
+$ glide install
+$ PORT=3333 go run main.go
 ```
