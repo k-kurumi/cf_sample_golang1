@@ -1,0 +1,6 @@
+---
+applications:
+- name: myapp123
+  memory: 8M
+  env:
+    GOPACKAGENAME: github.com/k-kurumi/cf_sample_golang1  # 任意の文字でもよい
